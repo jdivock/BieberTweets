@@ -5,10 +5,10 @@ if (Meteor.isServer) {
 	Meteor.startup(function() {
 		// code to run on server at startup
 		var twit = new twitter({
-			consumer_key: Meteor.settings.TBT_CONSUMER_KEY,
-			consumer_secret: Meteor.settings.TBT_CONSUMER_SECRET_KEY,
-			access_token_key: Meteor.settings.TBT_ACCESS_TOKEN,
-			access_token_secret: Meteor.settings.TBT_ACCESS_TOKEN_SECRET
+			consumer_key: process.env.TBT_CONSUMER_KEY,
+			consumer_secret: process.env.TBT_CONSUMER_SECRET_KEY,
+			access_token_key: process.env.TBT_ACCESS_TOKEN,
+			access_token_secret: process.env.TBT_ACCESS_TOKEN_SECRET
 		});
 //testsadf
 		var Fiber = Npm.require('fibers');
