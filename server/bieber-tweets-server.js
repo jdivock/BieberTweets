@@ -9,7 +9,7 @@ if (Meteor.isServer) {
 			access_token_key: Meteor.settings.TBT_ACCESS_TOKEN,
 			access_token_secret: Meteor.settings.TBT_ACCESS_TOKEN_SECRET
 		});
-//test
+
 		var Fiber = Npm.require('fibers');
 
 		twit.stream('statuses/filter', {track: 'bieber'}, function(stream) {
