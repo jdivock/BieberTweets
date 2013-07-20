@@ -12,24 +12,26 @@ if (Meteor.isServer) {
 
 		var Fiber = Npm.require('fibers');
 
-		twit.stream('statuses/filter', {
-			'follow': "17453527",
-			'language': 'en'
-		}, function(stream) {
+		twit.stream('statuses/sample', function(stream) {
 			stream.on('data', function(data) {
 				Fiber(function() {
 					var now = (new Date()).getTime();
-					console.log({
-						text: data.text,
-						author: '@' + data.user.screen_name,
-						added: now
-					});
+					if (!data.user) {
+						//console.log(data);
+					} else {
+						// console.log({
+						// 	text: data.text,
+						// 	author: '@' + data.user.screen_name,
+						// 	added: now
+						// });
+						Tweet.insert({
+							text: data.text,
+							author: '@' + data.user.screen_name,
+							added: now
+						});
 
-					Tweet.insert({
-						text: data.text,
-						author: '@' + data.user.screen_name,
-						added: now
-					});
+						//console.log(Tweet.find());
+					}
 				}).run();
 			});
 		});
@@ -41,8 +43,10 @@ Meteor.setInterval(function() {
 	var now = (new Date()).getTime()
 	var tweets = Tweet.find({});
 	tweets.forEach(function(tweet) {
-		if (now > tweet.added + 4000) {
+		if (now > tweet.added + 20000) {
 			Tweet.remove(tweet._id);
 		}
 	});
-}, 1000 / 20);
+
+	//console.log(Tweet.find());
+}, 1000);
