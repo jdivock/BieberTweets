@@ -1,0 +1,89 @@
+<head>
+	<title>Bieber Tweets</title>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-42605943-1', 'biebertweets.com');
+	  ga('send', 'pageview');
+
+	</script>
+
+	<style>
+		.hero-unit {
+			position: absolute;
+			height: 20%;
+			width: 75%;
+			top: 0;
+			padding: 5px 60px;
+		}
+		footer{
+			position:absolute;
+
+			bottom:10px;
+			left: 30px;
+			margin: 10px;
+		}
+		.tweets {
+			top: 25%;
+		}
+		.tweets{
+			position: absolute;
+			height: 60%;
+			overflow: auto;
+		}
+		.btn-git {
+			line-height: 14px;
+			vertical-align: top;
+		}
+		</style>
+
+		</head>
+
+<body>
+	
+	<div class="container">
+		<div class="hero-unit">
+		  <h1>Bieber Tweets</h1>
+		  <p>Destroying your faith in humanity one tweet at a time</p>
+		  
+		  <p>No really, this many people are tweeting about him right now . . . in real time</p>
+		</div>
+		
+		<div class="row tweets">
+			<div class="span12">
+				{{> display}}
+			</div>
+		</div>
+		
+	</div>
+
+	<footer class="row">
+		<span class="span12">
+		<a href="https://twitter.com/jdivock" class="twitter-follow-button" data-show-count="false">Follow @jdivock</a>
+
+		<a class="btn btn-small btn-git" href='https://github.com/jdivock/BieberTweets'><i class='icon-github'></i> Github</a>
+		<span>
+		
+	</footer>
+</body>
+
+
+<template name="display">
+	{{#each tweets}}
+		{{> h_tweet}}
+	{{/each}}
+</template>
+
+<template name="tweet">
+	<div class="tweet" id="{{_id}}">
+	</div>
+</template>
+
+<template name="h_tweet">
+	<strong>{{author}}: </strong>{{text}}
+	<div>{{timestamp}}</div>
+</template>
