@@ -1,8 +1,0 @@
-{
-  "name": "bieber-tweets",
-  "version": "0.0.0",
-  "engines": {
-    "node": ">=0.8.0",
-    "npm": "1.2.x"
-  }
-}
