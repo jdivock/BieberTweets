@@ -1,6 +1,7 @@
-
+ Tweet = new Meteor.Collection("tweet");
+ 
 if (Meteor.isClient) {
-  Tweet = new Meteor.Collection("tweet");
+ 
 
   var startup = (new Date()).getTime();
   Template.display.tweets = function () {

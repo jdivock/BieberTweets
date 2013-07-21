@@ -1,6 +1,7 @@
+Tweet = new Meteor.Collection("tweet");
 
 if (Meteor.isServer) {
-	Tweet = new Meteor.Collection("tweet");
+	
 
 	Meteor.startup(function() {
 		// code to run on server at startup
