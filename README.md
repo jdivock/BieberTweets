@@ -1,8 +1,4 @@
-BieberTweets
-============
+BieberTweets (meteor edition)
+==============================
 
-Just learning meteor and making a POC
-
-TODO:
-
-Originally I did this just to learn meteor and figure out how to deploy to heroku and whatnot, but unfortunatley it looks like heroku doesn't support websockets and meteor really enjoys using websockets . . . so either I'll move this to EC2 or re-write it using angular and my own node server
+Eh, gave up on this one since it kept dying, maybe I'll revisit it eventually, but in the meantime, I rewrote it in angular with a node backend here: https://github.com/jdivock/BieberTweets_angular
